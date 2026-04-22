@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "master", "main" ]
 
+permissions:
+  security-events: write
+
 jobs:
   # TRABAJO 1: BANDIT (Formato SARIF)
   bandit_scan:
