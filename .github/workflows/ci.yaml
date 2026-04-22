@@ -29,7 +29,7 @@ jobs:
         run: bandit -r . -f sarif -o sast-bandit.sarif -ll -ii || true
 
       - name: Upload Bandit SARIF to Security Tab
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
           sarif_file: sast-bandit.sarif
@@ -50,7 +50,7 @@ jobs:
         run: semgrep scan --severity=ERROR --severity WARNING --sarif --output=sast-semgrep.sarif || true
 
       - name: Upload Semgrep SARIF to Security Tab
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
           sarif_file: sast-semgrep.sarif
@@ -83,7 +83,7 @@ jobs:
           sarif-file: scout-report.sarif
 
       - name: Upload Docker Scout SARIF
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
           sarif_file: scout-report.sarif
